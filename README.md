@@ -10,9 +10,9 @@ Readable objects:
  * files from file manager as text data
 
 Supported URL formats:
- * web URL
- * local path
- * data:image
+ * web URL (http, https, ftp)
+ * local path (/home/.., c:\\.., file://..)
+ * dataURLs (data:image..)
 
 <a href="https://github.com/el-fuego//blob/master/biuld/jqueryPasteFileReader.js">
   download
@@ -39,6 +39,9 @@ $(window).pasteFileReader({
       error:   function (event) {}
 });
 ```
+**success()** will be called for each pasted file<br>
+**error()**   will be called if we know about reading trouble only and not for pasted data recognition error
+
 
 
 
@@ -54,5 +57,3 @@ $('.my-paste-catcher').pasteFileReader({
 });
 ```
 See **FileReader** documentation for event description
-
-**Note:** .focus() DOM element first if you need to paste not to the window
