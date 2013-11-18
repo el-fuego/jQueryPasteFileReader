@@ -5,7 +5,7 @@ Reads images and other files pasted by ctrl-v from clipboard to browser
 
 ####<a href="http://htmlpreview.github.io/?https://github.com/el-fuego/images-to-sites-previews/blob/master/index.html">View demo online</a>
 
-####<a href="https://github.com/el-fuego//blob/master/biuld/jqueryPasteFileReader.js">download</a>
+####<a href="https://raw.github.com/el-fuego/jQueryPasteFileReader/master/build/jqueryPasteFileReader.js">Download plugin</a>
 
 
 
