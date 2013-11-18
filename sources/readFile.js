@@ -12,8 +12,8 @@
 function readFile(file, options) {
 
     var reader = new FileReader();
-    reader.onload = function (evt) {
-        options.success(evt.result, getFileName(file.name || ''));
+    reader.onload = function (e) {
+        options.success(this.result || e.target.result, getFileName(file.name || ''));
     };
     reader.onerror =     options.error;
     reader.onloadstart = options.loadStart;

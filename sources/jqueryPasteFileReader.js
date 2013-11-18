@@ -33,7 +33,9 @@ $.fn.pasteFileReader = function (options) {
             var clipboardData = event.originalEvent.clipboardData,
                 found = false,
                 i,
-                l;
+                l,
+                typesIndexes,
+                file;
 
             if (!clipboardData) {
                 return readImagesFromCatchersHtml(options);
@@ -46,6 +48,22 @@ $.fn.pasteFileReader = function (options) {
                 return;
             }
 
+            // FF
+            // data types: binary
+            // *Note: clipboardData.files[i] access is blocked at browser console, but not at code
+            if (clipboardData.files) {
+                l = clipboardData.files.length;
+                for (i = 0; i < l && !found; i++) {
+                    try {
+                        readFile(clipboardData.files[i], options);
+                    } catch (e) {
+                        options.error(e);
+                        return;
+                    }
+                }
+                return;
+            }
+
             // Some dino browser
             // data types: html, uri-list, plain
             if (!clipboardData.types) {
@@ -55,19 +73,27 @@ $.fn.pasteFileReader = function (options) {
 
             // New browser
             // Check type not at items[].type for FF capability
-            // data types: rew image, html, uri-list, plain
-
-            // TODO: add sorting by priority for using more complex object
-            // First matched item is complex object at chrome but not at Firefox
-            l = clipboardData.types.length;
+            // data types: binary, html, uri-list, plain
+            // sort by priority for using more complex object
+            typesIndexes = getSortedIndexes(clipboardData.types);
+            l = typesIndexes.length;
             for (i = 0; i < l && !found; i++) {
 
                 // FF
                 if (!clipboardData.items) {
-                    found = callParsers('withTypes', [clipboardData.types[i], clipboardData, options]);
+                    found = callParsers('withTypes', [
+                        clipboardData.types[typesIndexes[i]],
+                        clipboardData,
+                        options
+                    ]);
                 } else {
                     // Best browsers
-                    found = callParsers('withItems', [clipboardData.types[i], clipboardData.items[i], clipboardData, options]);
+                    found = callParsers('withItems', [
+                        clipboardData.types[typesIndexes[i]],
+                        clipboardData.items[typesIndexes[i]],
+                        clipboardData,
+                        options
+                    ]);
                 }
             }
             if (found) {
