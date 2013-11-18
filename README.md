@@ -42,7 +42,7 @@ $(window).pasteFileReader({
  * file from file manager (windows) *
  * file from file manager as plain text (linux) *
 
-*Note some browsers blocks local files reading for security reasons. It is Chrome for a now
+*Note: some browsers blocks local files reading for security reasons. It is Chrome and Opera for a now
  
 Single and multiple files paste is supported both
 
