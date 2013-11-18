@@ -34,19 +34,24 @@ $(window).pasteFileReader({
 
 
 
-#### Data support
+#### Readable objects
+ * image binary data (image copy from browser)
+ * image binary data as HTML (image at html page)
+ * image from HTML data (page selection or code from editor)
+ * image from plain text
+ * file from file manager (windows) *
+ * file from file manager as plain text (linux) *
 
-Readable objects:
- * image binary data (image was copied at browser)
- * image binary data as html (image was copied at browser)
- * html data (copied page selection or code from editor)
- * files from file manager as text data
+*Note some browsers blocks local files reading for security reasons. It is Chrome for a now
+ 
+Single and multiple files paste is supported both
 
-Supported URL formats:
+
+#### Supported URL formats
  * web URL (http, https, ftp)
- * local path (/home/.., c:\\.., file://..)
  * dataURLs (data:image..)
-
+ * local path (/home/.., c:\\.., file://..) *
+ 
 
 
 
