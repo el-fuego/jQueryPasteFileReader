@@ -19,5 +19,9 @@ function readFile(file, options) {
     reader.onloadstart = options.loadStart;
     reader.onloadend =   options.loadEnd;
     reader.onprogress =  options.progress;
-    reader[options.asBinary ? 'readAsBinaryString' : 'readAsDataURL'](file);
+    try {
+        reader[options.asBinary ? 'readAsBinaryString' : 'readAsDataURL'](file);
+    } catch (e) {
+        options.error(e);
+    }
 }
