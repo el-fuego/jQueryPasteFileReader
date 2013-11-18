@@ -1,17 +1,15 @@
 /**
- * Create $('DIV') if global object at CE mode
+ * Create $('DIV') if global object
  * Return $(el) otherwise
  * @param el {DOM element}
  * @returns {$}
  */
 function getPasteCatcher(el) {
 
-    // create DIV if global object at CE mode
-
     var catcher = $('#pasteCatcher');
 
-    // not at CE mode or not a global catching
-    if (!needContentEditable || ['body', 'window', 'document', window, document].indexOf(el) < 0) {
+    // not a global catching
+    if (['body', 'window', 'document', window, document].indexOf(el) < 0) {
         return $(el);
     }
 
@@ -24,9 +22,10 @@ function getPasteCatcher(el) {
         .attr('id', 'pasteCatcher')
         .css({
             position: 'absolute',
-            left:    '100%',
-            top:     '100%',
-            opacity: 0
+            left: '100%',
+            top: '100%',
+            opacity: 0,
+            overflow: 'hidden'
         })
         .appendTo('body');
 }

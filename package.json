@@ -1,7 +1,7 @@
 {
     "name": "jQueryPaseFileReader",
     "description": "jQuery plugin for loading images and others files pasted by ctrl-v at browser",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "homepage": "https://github.com/el-fuego/jQueryPasteFileReader.git",
     "author": {
         "name": "Yuriy Pulyaev",

@@ -40,7 +40,7 @@ clipboardParsers.withItems = [
                 if (patterns.content.html.test(data)) {
                     getImagesFromHtml(data, options);
                 } else {
-                    getFilesByPaths(data, options);
+                    getFilesFromText(data, options);
                 }
             });
             return true;

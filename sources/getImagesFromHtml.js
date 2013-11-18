@@ -16,7 +16,7 @@ function getImagesFromHtml(html, options) {
         found = false;
 
     while (urlMatch = pattern.exec(html)) {
-        found = getFilesByPaths(urlMatch[2], options) || found;
+        found = getFilesFromText(urlMatch[2], options) || found;
     }
 
     return found;

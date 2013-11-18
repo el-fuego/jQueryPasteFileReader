@@ -23,7 +23,7 @@ clipboardParsers.withoutTypes = [
         if (patterns.content.html.test(data)) {
             return getImagesFromHtml(data, options);
         } else {
-            return getFilesByPaths(data, options);
+            return getFilesFromText(data, options);
         }
     }
 ];
