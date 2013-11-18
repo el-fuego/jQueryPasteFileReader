@@ -22,9 +22,11 @@ function getPasteCatcher(el) {
         .attr('id', 'pasteCatcher')
         .css({
             position: 'absolute',
-            left: '100%',
-            top: '100%',
-            opacity: 0,
+            left:     '100%',
+            top:      '100%',
+            width:    '1px',
+            height:   '1px',
+            opacity:  '0',
             overflow: 'hidden'
         })
         .appendTo('body');

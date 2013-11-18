@@ -9,10 +9,7 @@ clipboardParsers.withoutTypes = [
         var data = clipboardData.getData('text/html') || false;
         if (!data) { return false; }
 
-        return getImagesFromHtml(
-            data,
-            options
-        );
+        return getImagesFromHtml(data, options);
     },
 
     function (clipboardData, options) {

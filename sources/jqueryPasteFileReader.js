@@ -34,18 +34,18 @@ $.fn.pasteFileReader = function (options) {
                 found = false,
                 i,
                 l,
-                typesIndexes,
-                file;
+                typesIndexes;
 
             if (!clipboardData) {
-                return readImagesFromCatchersHtml(options);
+                readImagesFromCatchersHtml(options);
+                return stopEvent(event);
             }
 
             // IE
             // data types: URL, Text
             if (window.clipboardData) {
                 callParsers('simply', [window.clipboardData, options]);
-                return;
+                return stopEvent(event);
             }
 
             // FF
@@ -58,17 +58,17 @@ $.fn.pasteFileReader = function (options) {
                         readFile(clipboardData.files[i], options);
                     } catch (e) {
                         options.error(e);
-                        return;
+                        return stopEvent(event);
                     }
                 }
-                return;
+                return stopEvent(event);
             }
 
             // Some dino browser
             // data types: html, uri-list, plain
             if (!clipboardData.types) {
                 callParsers('withoutTypes', [clipboardData, options]);
-                return;
+                return stopEvent(event);
             }
 
             // New browser
@@ -97,11 +97,10 @@ $.fn.pasteFileReader = function (options) {
                 }
             }
             if (found) {
-                event.stopPropagation();
-                event.preventDefault();
-            } else {
-                readImagesFromCatchersHtml(options);
+                return stopEvent(event);
             }
+
+            readImagesFromCatchersHtml(options);
         });
     });
 }
