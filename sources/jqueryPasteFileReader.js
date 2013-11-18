@@ -51,7 +51,7 @@ $.fn.pasteFileReader = function (options) {
             // FF
             // data types: binary
             // *Note: clipboardData.files[i] access is blocked at browser console, but not at code
-            if (clipboardData.files) {
+            if (clipboardData.files && clipboardData.files.length) {
                 l = clipboardData.files.length;
                 for (i = 0; i < l && !found; i++) {
                     try {
