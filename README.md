@@ -3,20 +3,10 @@ jQueryPasteFileReader
 
 Reads images and other files pasted by ctrl-v from clipboard to browser
 
-Readable objects:
- * image binary data (image was copied at browser)
- * image binary data as html (image was copied at browser)
- * html data (copied page selection or code from editor)
- * files from file manager as text data
+####<a href="http://htmlpreview.github.io/?https://github.com/el-fuego/images-to-sites-previews/blob/master/index.html">View demo online</a>
 
-Supported URL formats:
- * web URL (http, https, ftp)
- * local path (/home/.., c:\\.., file://..)
- * dataURLs (data:image..)
+####<a href="https://github.com/el-fuego//blob/master/biuld/jqueryPasteFileReader.js">download</a>
 
-<a href="https://github.com/el-fuego//blob/master/biuld/jqueryPasteFileReader.js">
-  download
-</a>
 
 
 
@@ -41,6 +31,21 @@ $(window).pasteFileReader({
 ```
 **success()** will be called for each pasted file<br>
 **error()**   will be called if we know about reading trouble only and not for pasted data recognition error
+
+
+
+#### Data support
+
+Readable objects:
+ * image binary data (image was copied at browser)
+ * image binary data as html (image was copied at browser)
+ * html data (copied page selection or code from editor)
+ * files from file manager as text data
+
+Supported URL formats:
+ * web URL (http, https, ftp)
+ * local path (/home/.., c:\\.., file://..)
+ * dataURLs (data:image..)
 
 
 
